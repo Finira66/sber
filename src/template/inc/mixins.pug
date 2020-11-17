@@ -1,0 +1,11 @@
+mixin icon(name, className)
+  - const icon = require(`images/icons/${name}.svg`);
+  svg(class=className viewBox=icon.viewBox preserveAspectRatio="none")
+    use(xlink:href=icon.url)
+
+mixin image(path, className, attrs)
+  img(src=require(`images/${path}`) class=className)&attributes(attrs)
+
+mixin backgroundImage(element, path, className, attrs)
+  #{element}(style="background-image: url("+require(`images/${path}`)+");", class=className)&attributes(attrs)
+    block

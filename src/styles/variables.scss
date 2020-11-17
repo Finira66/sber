@@ -1,0 +1,20 @@
+$main-color: #FEE600;
+$text-color: #fff;
+$main-dark: #242422;
+$main-dark-alter: #1A1A18;
+$main-soft: #D8D1CA;
+
+$main-color-hover: darken($main-color, 10%);
+
+$links-color: #237BFF;
+$links-color-hover: darken($links-color, 10%);
+$danger-color: #e61e33;
+$warning-color: #FEA815;
+$success-color: #35B37E;
+$footer-color: $main-dark;
+
+$bp-desktop-hd: 1399px;
+$bp-desktop: 1279px;
+$bp-tablets: 1023px;
+$bp-phones: 767px;
+$bp-phones-small: 320px;

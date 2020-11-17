@@ -1,0 +1,7 @@
+ingress:
+  hosts:
+    - host: zeen-sber-aij.pro.zeenevents.com
+  tls:
+    - secretName:
+      hosts:
+        - zeen-sber-aij.pro.zeenevents.com
