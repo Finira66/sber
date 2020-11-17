@@ -2,7 +2,7 @@
   section.section.h-chill.h-chill--pt
     .container
       .h-chill__section
-        a(href="#").back-link
+        a(href="#" @click.prevent="$router.history._startLocation == '/vacancy' ? $router.push('/') : $router.go(-1)").back-link
           img.back-link__arrow(src="~images/vacancy/arrow.svg")
           .back-link__text Назад
         .h-chill__container
@@ -16,9 +16,10 @@
           .title.title--medium Цифровая экосистема Сбербанка
           .text Одной из целей принятой «Сбербанком» Стратегии 2020 заявлена реализация инициатив, которые позволят конкурировать с глобальными технологическими компаниями. Эта конкуренция разворачивается в плоскости формирования лучшего клиентского опыта, причем необязательно финансового.
           .h-chill__video-container
-            .h-chill__overlay
-              img.h-chill__play(src="~images/vacancy/play.svg")
-            video.h-chill__video(poster="~images/vacancy/video.png")
+            .h-chill__overlay(v-if="!isPlayingVideo")
+              img.h-chill__play(src="~images/vacancy/play.svg" @click="isPlayingVideo = true")
+            video.h-chill__video(poster="~images/vacancy/video.png" v-if="!isPlayingVideo")
+            iframe(v-if="isPlayingVideo" width="560" height="315" src="https://www.youtube.com/embed/K88vRG0KwMQ?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
           .text Представляя стратегию в Лондоне в конце 2017 года, Герман Греф обозначил три ключевых приоритета – и банка, и своих личных, как СЕО: персонал, клиенты и технологии. В нетехнологической компании только под неусыпным надзором CEO можно трансформировать технологии, пояснил он.
 
           .h-chill__box
@@ -35,18 +36,22 @@
       .title.title--big Похожие статьи
       .articles-list.articles-list--vacancy
         a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/sber.svg")
           .articles-list__text {{$t('home.articles.articles_description_1')}}
         a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/intel.svg")
           .articles-list__text {{$t('home.articles.articles_description_2')}}
         a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/sber.svg")
           .articles-list__text {{$t('home.articles.articles_description_3')}}
         a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/sber.svg")
           .articles-list__text {{$t('home.articles.articles_description_4')}}
@@ -58,6 +63,12 @@
 
 export default {
   name: 'HomeArticles',
+
+  data() {
+    return {
+      isPlayingVideo: false
+    }
+  }
 }
 
 </script>
@@ -167,6 +178,12 @@ export default {
     position: relative;
     margin: 30px 0;
     height: 450px;
+
+    iframe {
+      width: 100%;
+      height: 450px;
+    }
+
     @include phones(){
       height: 165px;
     }
@@ -414,6 +431,14 @@ export default {
       z-index: -1;
     }
 
+    &-pic {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
     @include desktop() {
       width: 45%;
       margin-bottom: 20px;
@@ -438,13 +463,19 @@ export default {
     padding: 7px;
     background: #fff;
     border-radius: 5px;
+    z-index: 1;
+    position: relative;
   }
 
   &__logo {
     object-fit: contain;
+    z-index: 1;
+    position: relative;
   }
 
   &__text {
+    z-index: 1;
+    position: relative;
     margin-top: auto;
     font-weight: 700;
     font-size: 18px;

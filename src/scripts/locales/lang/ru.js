@@ -1,4 +1,17 @@
 export default {
+  header: {
+    menu: {
+      stream: 'Эфир',
+      program: 'Программа',
+      expo: 'Выставка',
+      career: 'Карьера',
+      chillout: 'Чилаут'
+    },
+    my: {
+      timetable: 'Мое расписание',
+      account: 'Кабинет'
+    }
+  },
   home: {
     intro: {
       title_row_1: 'слоган',
