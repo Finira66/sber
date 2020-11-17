@@ -4,7 +4,7 @@
       h2.title-h2.h-chill__title.h-chill__title--mb {{$t('home.articles.title')}}
 
       .articles-list
-        a.articles-list__item(href="#" style='background-image:url(#{require("~/images/articles-list/background.png")})')
+        a.articles-list__item(href="#" style='background-image:url(#{require("~images/articles-list/background.png")})')
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/sber.svg")
           .articles-list__text {{$t('home.articles.articles_description_1')}}
