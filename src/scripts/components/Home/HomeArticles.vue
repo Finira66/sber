@@ -4,19 +4,23 @@
       h2.title-h2.h-chill__title.h-chill__title--mb {{$t('home.articles.title')}}
 
       .articles-list
-        a.articles-list__item(href="#" style='background-image:url(#{require("~images/articles-list/background.png")})')
+        a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/sber.svg")
           .articles-list__text {{$t('home.articles.articles_description_1')}}
         a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/intel.svg")
           .articles-list__text {{$t('home.articles.articles_description_2')}}
         a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/sber.svg")
           .articles-list__text {{$t('home.articles.articles_description_3')}}
         a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/sber.svg")
           .articles-list__text {{$t('home.articles.articles_description_4')}}
@@ -30,18 +34,22 @@
 
       .articles-list
         a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/sber.svg")
           .articles-list__text {{$t('home.articles.articles_description_1')}}
         a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/intel.svg")
           .articles-list__text {{$t('home.articles.articles_description_2')}}
         a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/sber.svg")
           .articles-list__text {{$t('home.articles.articles_description_3')}}
         a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/sber.svg")
           .articles-list__text {{$t('home.articles.articles_description_4')}}
@@ -56,18 +64,22 @@
 
       .articles-list
         a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/sber.svg")
           .articles-list__text {{$t('home.articles.articles_description_1')}}
         a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/intel.svg")
           .articles-list__text {{$t('home.articles.articles_description_2')}}
         a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/sber.svg")
           .articles-list__text {{$t('home.articles.articles_description_3')}}
         a.articles-list__item(href="#")
+          img.articles-list__item-pic(src="~images/articles-list/background.png")
           .articles-list__logo-box
             img.articles-list__logo(src="~images/articles-list/sber.svg")
           .articles-list__text {{$t('home.articles.articles_description_4')}}
@@ -323,6 +335,14 @@ export default {
       z-index: -1;
     }
 
+    &-pic {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
     @include desktop() {
       width: 45%;
       margin-bottom: 20px;
@@ -347,13 +367,19 @@ export default {
     padding: 7px;
     background: #fff;
     border-radius: 5px;
+    z-index: 1;
+    position: relative;
   }
 
   &__logo {
     object-fit: contain;
+    z-index: 1;
+    position: relative;
   }
 
   &__text {
+    z-index: 1;
+    position: relative;
     margin-top: auto;
     font-weight: 700;
     font-size: 18px;
